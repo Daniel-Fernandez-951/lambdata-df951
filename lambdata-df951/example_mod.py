@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import subprocess
 import platform
+import tabulate
 
 # Any required variables for use here
 
@@ -42,13 +43,13 @@ def md_copy(df):
         subprocess.run("pbcopy",
                         universal_newlines=True,
                         input=df_md)
-        print('Successful, paste responsibly!')
+        print("✅Successful, paste responsibly!")
     elif user_os == "Linux":
         print(f'{user_os} currently not supported 😭')
     elif user_os == "Windows":
         subprocess.run(['clip.exe'],
                         input=df_md,
                         check=True)
-        print('Successful, paste responsibly!')
+        print("✅Successful, paste responsibly!")
     else:
-        print(f'{user_os}🧐. . . never seen that before!')
+        print(f"{user_os}🧐. . . never seen that before!")
