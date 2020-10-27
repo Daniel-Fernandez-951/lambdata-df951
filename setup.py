@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
     name="lamdata-df951", # Replace with your own username
-    version="0.0.1",
+    version="0.0.2",
     author="Daniel-Fernandez-951",
     description="Example Collection of DS Modules",
     long_description=long_description,
