@@ -6,8 +6,8 @@ Early version of Data Cleaning functions
 # Libraries used in this module through pipenv
 import numpy as np
 import pandas as pd
-import subprocess
-import platform
+# import subprocess
+# import platform
 import tabulate
 
 # Any required variables for use here
@@ -37,19 +37,20 @@ def md_copy(df):
     the clipboard.
     Supports: Windows and Mac only
     """
-    user_os = platform.system()
+    # user_os = platform.system()
     df_md = df.to_markdown()
-    if user_os == "Darwin":
-        subprocess.run("pbcopy",
-                        universal_newlines=True,
-                        input=df_md)
-        print("✅Successful, paste responsibly!")
-    elif user_os == "Linux":
-        print(f'{user_os} currently not supported 😭')
-    elif user_os == "Windows":
-        subprocess.run(['clip.exe'],
-                        input=df_md,
-                        check=True)
-        print("✅Successful, paste responsibly!")
-    else:
-        print(f"{user_os}🧐. . . never seen that before!")
+    return df_md
+    # if user_os == "Darwin":
+    #     subprocess.run("pbcopy",
+    #                     universal_newlines=True,
+    #                     input=df_md)
+    #     print("✅Successful, paste responsibly!")
+    # elif user_os == "Linux":
+    #     print(f'{user_os} currently not supported 😭')
+    # elif user_os == "Windows":
+    #     subprocess.run(['clip.exe'],
+    #                     input=df_md,
+    #                     check=True)
+    #     print("✅Successful, paste responsibly!")
+    # else:
+    #     print(f"{user_os}🧐. . . never seen that before!")

@@ -1,6 +1,6 @@
 import setuptools
 
-REQUIRED = ['numpy', 'pandas', 'subprocess', 'platform', 'tabulate']
+REQUIRED = ['numpy', 'pandas', 'tabulate']
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
