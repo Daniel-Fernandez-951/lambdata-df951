@@ -14,43 +14,47 @@ import tabulate
 
 
 # DS functions here
-def total_nul(df):
-    """
-    Get the total amount of Null and NaN values
-    """
-    nul = (df.isnull().sum()).sum()
-    na = (df.isnull().sum()).sum()
-    print(f'Nan Count = {na}\nNull Count = {nul}')
+class DfTools:
+    def __init__(self, df):
+        self.df = df
+
+    def total_nul(self, df):
+        """
+        Get the total amount of Null and NaN values
+        """
+        nul = (df.isnull().sum()).sum()
+        na = (df.isnull().sum()).sum()
+        print(f'Nan Count = {na}\nNull Count = {nul}')
 
 
-def rand_df(df):
-    """
-    Shuffle--not just a dance move--a data frame
-    """
-    out = df.sample(frac=1).reset_index(drop=True)
-    return out
+    def rand_df(self, df):
+        """
+        Shuffle--not just a dance move--a data frame
+        """
+        out = df.sample(frac=1).reset_index(drop=True)
+        return out
 
 
-def md_copy(df):
-    """
-    Send the markdown version of data frame to
-    the clipboard.
-    Supports: Windows and Mac only
-    """
-    user_os = platform.system()
-    df_md = df.to_markdown()
-    # return df_md
-    if user_os == "Darwin":
-        subprocess.run("pbcopy",
-                        universal_newlines=True,
-                        input=df_md)
-        print(" ✅ Successful, paste responsibly!")
-    elif user_os == "Linux":
-        print(f'{user_os} currently not supported 😭')
-    elif user_os == "Windows":
-        subprocess.run(['clip.exe'],
-                        input=df_md,
-                        check=True)
-        print(" ✅ Successful, paste responsibly!")
-    else:
-        print(f"{user_os}🧐. . . never seen that before!")
+    def md_copy(self, df):
+        """
+        Send the markdown version of data frame to
+        the clipboard.
+        Supports: Windows and Mac only
+        """
+        user_os = platform.system()
+        df_md = df.to_markdown()
+        # return df_md
+        if user_os == "Darwin":
+            subprocess.run("pbcopy",
+                            universal_newlines=True,
+                            input=df_md)
+            print(" ✅ Successful, paste responsibly!")
+        elif user_os == "Linux":
+            print(f'{user_os} currently not supported 😭')
+        elif user_os == "Windows":
+            subprocess.run(['clip.exe'],
+                            input=df_md,
+                            check=True)
+            print(" ✅ Successful, paste responsibly!")
+        else:
+            print(f"{user_os}🧐. . . never seen that before!")
