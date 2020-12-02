@@ -61,23 +61,23 @@ class DfTools:
             return f"{user_os}🧐. . . never seen that before!"
 
     @staticmethod
-    def stamp_submission(submission, folder='/submission/', fileName='submission'):
+    def stamp_submission(submission, folder='/submission/', filename='submission'):
         """
         In current directory, make @param folder and write to a file named
         @param submission with a time-stamp.
         @param submission: <dataframe to write>
         @param folder: '/submission/'
-        @param fileName: 'submission'
+        @param filename: 'submission'
         """
         path = os.getcwd()
         dtime = str(datetime.datetime.now().timestamp()).replace('.', '')
         full_path = path + folder
 
         try:
-            f = open(f"{full_path}{fileName}_{dtime}", "w")
+            f = open(f"{full_path}{filename}_{dtime}", "w")
             f.write(submission)
             f.close()
         except FileExistsError:
-            f = open(f"{full_path}{fileName}_{dtime}", "w")
+            f = open(f"{full_path}{filename}_{dtime}", "w")
             f.write(submission)
             f.close()
